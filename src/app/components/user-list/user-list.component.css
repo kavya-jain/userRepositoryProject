@@ -1,0 +1,78 @@
+.baseDiv {
+    background-image: url("C:/projects/Personal/userRepositoryProject/src/assets/images/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;    
+    height: 98vh;
+    width: 99vw;
+}
+
+.parentDiv {
+    background-color: rgb(14, 24, 48);   
+    height: 85vh;
+    width: 92vw;
+    margin:  0 auto;
+    padding: 10px;
+    position: relative;
+    top:5%;
+    box-shadow: 0 5px 5px rgb(11, 37, 59);
+}
+
+h3 {
+    position: relative;
+    width:10vw;
+    margin:20pt;
+    padding: 10pt;
+    font-weight: bold;
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.searchBar {
+    position: absolute;
+    align-items: right;
+    margin-left:70%;
+    margin-top:-53pt;
+    padding-right:10pt
+}
+
+.searchPic {
+    height:17pt;
+    width:18pt;
+    vertical-align: middle;
+}
+
+.suggestion p{
+    font-style: italic;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    margin: 0em;
+}
+
+.pictureDiv {
+    float: left;  
+    padding-right: 10pt;
+    padding-left: 20pt;
+    margin-right: 20pt;
+    margin-left: 20pt;
+    padding-bottom: 10pt;
+    background-color: rgb(5, 16, 44);
+    box-shadow: 0 4px 4px  rgb(1, 10, 32);
+}
+
+.displayPic {
+    height: 60px;
+    width: 60px;
+    margin-left: 5pt;
+    padding-right: 5pt
+}
+
+.name {
+    font-style: italic;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    margin-left: 1em;
+}

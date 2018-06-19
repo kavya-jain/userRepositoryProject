@@ -1,0 +1,28 @@
+<head>
+    <title>Users</title>
+</head>
+<div class="baseDiv">
+    <div class="parentDiv">
+        <h3>Users</h3>
+
+        <div class="searchBar">
+            <input type="text" placeholder="Search..." name="userSearched" [(ngModel)]="userSearched" (keydown.enter)="showSearchedUser(userSearched)"
+                (keyup)="suggestUser(userSearched)">
+            <img class="searchPic" src="../../assets/images/search.png" />
+            <div class="suggestion" *ngIf="userSearched">
+                <p *ngFor="let name of suggestedUserList">
+                    <span (click)="showSearchedUser(name)">{{name}}</span>
+                </p>
+            </div>
+        </div>
+
+        <div *ngFor="let user of users" class="pictureDiv" id={{user.id}}>
+                <span class="name">{{user.name}}</span>
+                <br/>
+                <img class="displayPic" src={{user.picture}} (click)="showUserDesc(user)" />
+                <br/>
+                <button (click)="addFriend(user.id)">Add Friend</button>
+            </div>
+
+    </div>
+</div>

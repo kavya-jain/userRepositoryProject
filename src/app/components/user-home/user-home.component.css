@@ -1,0 +1,11 @@
+.userDescDiv { 
+    height:50%;
+    position:absolute;
+    top:50%
+}
+
+.userListDiv{ 
+    height:50%;
+    position:absolute;
+    bottom:50%
+}

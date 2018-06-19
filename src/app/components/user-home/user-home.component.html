@@ -1,0 +1,12 @@
+<div>
+  <div class="userDescDiv" *ngIf = "selectedUser">
+    <app-user-description [user] = selectedUser></app-user-description>
+
+  </div>
+  <div class="userListDiv">
+    <app-user-list [users] = usersList [suggestedUserList] = suggestedUserList (onUserSelected) = 'onSelectUser($event)' (friendlyUser) = 'addFriend($event)' (searchedUser) = "onSearch($event)" (suggestedUser)="suggestUsers($event)">
+
+    </app-user-list>
+
+  </div>
+</div>
