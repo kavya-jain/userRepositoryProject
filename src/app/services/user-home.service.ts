@@ -21,7 +21,7 @@ export class UserHomeService {
           }
         }
         user.friends.push(friendId);
-        alert(user.friends);
+        alert("Added Friend");
       }
     }
     return Observable.of(USERS);

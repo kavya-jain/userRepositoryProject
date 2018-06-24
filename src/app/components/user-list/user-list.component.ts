@@ -18,7 +18,7 @@ export class UserListComponent implements OnInit {
   constructor() {}
 
   public showUserDesc(user: User): void {
-    console.log(user);
+    // console.log(user);
     this.onUserSelected.emit(user);
   }
 
@@ -28,7 +28,7 @@ export class UserListComponent implements OnInit {
   }
 
   public showSearchedUser(name: string): void {
-    alert(name);
+    // alert(name);
     this.searchedUser.emit(name);
   }
 

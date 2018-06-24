@@ -20,22 +20,22 @@ export class UserHomeComponent implements OnInit {
   ngOnInit() {
     this.userService.getUserData().subscribe(response => {
       this.usersList = response;
-      console.log(response);
+      // console.log(response);
     });
   }
 
   onSelectUser(user: User) {
     this.selectedUser = user;
-    alert(user.id);
+    // alert(user.id);
   }
 
   addFriend(id: number) {
     let ctr: number = 0;
     if (!this.selectedUser) {
-      alert("invalid");
+      alert("Invalid user");
     } else {
       if (this.selectedUser.id == id) {
-        alert("invalid");
+        alert("I can't be my own friend!");
       } else {
         for (let friend of this.selectedUser.friends) {
           if (id == friend) {
@@ -46,14 +46,14 @@ export class UserHomeComponent implements OnInit {
         if (ctr == 0) {
           this.alterFriend(this.selectedUser.id, id);
         } else {
-          alert("already friend");
+          alert("I am already a friend");
         }
       }
     }
   }
 
   alterFriend(userId: number, friendId: number) {
-    alert(userId + "-->" + friendId);
+    // alert(userId + "-->" + friendId);
     this.userService.addFriend(userId, friendId);
     this.userService.getUserData().subscribe(response => {
       this.usersList = response;
@@ -82,7 +82,7 @@ export class UserHomeComponent implements OnInit {
         this.suggestedUserList = [];
       }
     }
-    if (ctr == 0) alert("not found");
+    if (ctr == 0) alert("User not found");
   }
 
   suggestUsers(name: string) {
