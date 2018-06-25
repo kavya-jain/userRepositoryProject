@@ -10,6 +10,8 @@ export class UserDescriptionComponent implements OnInit {
 
   @Input()
   user : User;
+  @Input()
+  friendList : string[];
 
   constructor() { }
 

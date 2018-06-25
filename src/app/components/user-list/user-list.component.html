@@ -6,7 +6,8 @@
         <h3>Users</h3>
 
         <div class="searchBar">
-            <input type="text" placeholder="Search..." name="userSearched" [(ngModel)]="userSearched" (keydown.enter)="showSearchedUser(userSearched)"
+            <input type="text" placeholder="Search..." name="userSearched" [(ngModel)]="userSearched" 
+                (keydown.enter)="showSearchedUser(userSearched)"
                 (keyup)="suggestUser(userSearched)">
             <img class="searchPic" src="../../assets/images/search.png" />
             <div class="suggestion" *ngIf="userSearched">
@@ -21,7 +22,7 @@
                 <br/>
                 <img class="displayPic" src={{user.picture}} (click)="showUserDesc(user)" />
                 <br/>
-                <button (click)="addFriend(user.id)">Add Friend</button>
+                <button (click)="addFriend(user.id)" [disabled]="disableBtnDiv()">Add Friend</button>
             </div>
 
     </div>

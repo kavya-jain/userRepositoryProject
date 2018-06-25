@@ -1,0 +1,15 @@
+.parentDiv {
+    background-color: rgb(12, 25, 54);   
+    height: 6vh;
+    width: 20vw;
+    margin:  0 auto;
+    left:35vw;
+    top:40pt;
+    box-shadow: 0 5px 5px rgb(9, 43, 71);
+    position: absolute;
+    z-index:2;
+    color: white;
+    text-align: center;
+    font-size: large;
+    border: 2pt solid rgb(2, 18, 39);
+}

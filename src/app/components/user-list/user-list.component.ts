@@ -8,6 +8,8 @@ import { User } from "../../user";
   styleUrls: ["./user-list.component.css"]
 })
 export class UserListComponent implements OnInit {
+  
+  userSelected : boolean = false
   @Input() users;
   @Input() suggestedUserList : string[] = [];
   @Output() onUserSelected: EventEmitter<User> = new EventEmitter<User>();
@@ -19,7 +21,12 @@ export class UserListComponent implements OnInit {
 
   public showUserDesc(user: User): void {
     // console.log(user);
+    this.userSelected = true;
     this.onUserSelected.emit(user);
+  }
+
+  public disableBtnDiv(){
+    return !this.userSelected;
   }
 
   public addFriend(id: number): void {

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { UserDescriptionComponent } from "../user-description/user-description.component";
 import { User } from "../../user";
 import { UserHomeService } from "../../services/user-home.service";
+import { ErrorMessages } from "../../errorMessages";
 
 @Component({
   selector: "app-user-home",
@@ -14,6 +15,9 @@ export class UserHomeComponent implements OnInit {
   selectedUser: User;
   searchedUser: string;
   suggestedUserList: string[] = [];
+  friendList: string[] = [];
+  errMsgList : ErrorMessages[] = [];
+  errMsg : ErrorMessages;
 
   constructor(private userService: UserHomeService) {}
 
@@ -22,20 +26,32 @@ export class UserHomeComponent implements OnInit {
       this.usersList = response;
       // console.log(response);
     });
+    this.userService.getErrorMessages().subscribe(response => {
+      this.errMsgList = response;
+      // console.log(response);
+    });
   }
 
   onSelectUser(user: User) {
     this.selectedUser = user;
+    this.showFriendList();
     // alert(user.id);
+  }
+
+  showFriendList(){
+    for(let user of this.usersList){
+      if(this.selectedUser.friends.includes(user.id))
+        this.friendList.push(user.name);
+    }
   }
 
   addFriend(id: number) {
     let ctr: number = 0;
     if (!this.selectedUser) {
-      alert("Invalid user");
+      this.setError(1);
     } else {
       if (this.selectedUser.id == id) {
-        alert("I can't be my own friend!");
+        this.setError(2);
       } else {
         for (let friend of this.selectedUser.friends) {
           if (id == friend) {
@@ -46,7 +62,7 @@ export class UserHomeComponent implements OnInit {
         if (ctr == 0) {
           this.alterFriend(this.selectedUser.id, id);
         } else {
-          alert("I am already a friend");
+          this.setError(3);
         }
       }
     }
@@ -82,7 +98,8 @@ export class UserHomeComponent implements OnInit {
         this.suggestedUserList = [];
       }
     }
-    if (ctr == 0) alert("User not found");
+    if (ctr == 0) 
+      this.setError(4);
   }
 
   suggestUsers(name: string) {
@@ -96,4 +113,15 @@ export class UserHomeComponent implements OnInit {
       this.suggestedUserList.push("No User Found");
     }
   }
+
+  setError(code: number){
+    let tempError : ErrorMessages = new ErrorMessages();
+    tempError.code = code;
+    for(let err of this.errMsgList){
+      if(err.code == code)
+        tempError.msg = err.msg;    
+    }
+    this.errMsg = tempError;
+  }
+
 }
